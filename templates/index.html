@@ -92,6 +92,7 @@
   <!--===============================================================================================-->
   <script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
   <!--===============================================================================================-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <!-- <script src="{{ url_for('static', filename='vendor/bootstrap/js/popper.js') }}"></script> -->
   <!-- <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script> -->
   <!--===============================================================================================-->
@@ -151,6 +152,8 @@
     function updateTimer() {
       if (minutes == 0 && seconds == 0) {
         console.log("Store to databse and reset");
+        // calling route to store date_time
+        $.getJSON('/send_datetime', function () { });
       }
       else if (seconds == 0) {
         minutes -= 1;
