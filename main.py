@@ -11,20 +11,19 @@ db = SQLAlchemy(app)
 
 class Logs(db.Model):
   id = db.Column(db.Integer, primary_key=True)
-  date_created = db.Column(db.DateTime, default=datetime.now)
+  date_created = db.Column(db.DateTime, default=datetime.now().date)
 
 def __repr__(self):
   return date_created
 
 @app.route('/')
 def index():
-  logs = Logs.query.order_by(Logs.date_created).all()
-  return render_template('index.html', logs=logs)
+  return render_template('index.html')
 
 
 @app.route('/send_datetime')
 def send_datetime():
-  date_time = datetime.now()
+  date_time = datetime.now().date()
   id_p = random.randint(1,500)
   print(str(date_time) + " " +str(id_p))
   new_log = Logs(id=id_p,date_created=date_time)
@@ -32,7 +31,11 @@ def send_datetime():
   db.session.commit()
   return redirect('/')
   
-
+@app.route('/history')
+def history():
+  # calculate values for today, yesterday, 7days, 30days, store in a dictionary, pass dictionary
+  logs = Logs.query.order_by(Logs.date_created).all()
+  return render_template('history.html', logs=logs)
   
 if __name__ == "__main__":
   app.run(debug=True)

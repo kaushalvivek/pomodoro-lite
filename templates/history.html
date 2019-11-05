@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Table</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico') }}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/history.css') }}">
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <h1>Average Daily Counts</h1>
+  <table class="rwd-table">
+    <tr>
+      <th>Timeframe</th>
+      <th>Count</th>
+    </tr>
+    <tr>
+      <td data-th="Timeframe">Today</td>
+      <td data-th="Average Daily Count">4</td>
+    </tr>
+    <tr>
+      <td data-th="Timeframe">Yesterday</td>
+      <td data-th="Average Daily Count">14</td>
+    </tr>
+    <tr>
+      <td data-th="Timeframe">Last 7 Days</td>
+      <td data-th="Average Daily Count">6.3</td>
+    </tr>
+    <tr>
+      <td data-th="Timeframe">Last 30 Days</td>
+      <td data-th="Average Daily Count">6.4</td>
+    </tr>
+  </table>
+
+  {{ logs }}
+
+  <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+</body>
+
+</html>
