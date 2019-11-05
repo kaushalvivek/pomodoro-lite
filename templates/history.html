@@ -21,23 +21,23 @@
     </tr>
     <tr>
       <td data-th="Timeframe">Today</td>
-      <td data-th="Average Daily Count">4</td>
+      <td data-th="Average Daily Count">{{ data.today }}</td>
     </tr>
     <tr>
       <td data-th="Timeframe">Yesterday</td>
-      <td data-th="Average Daily Count">14</td>
+      <td data-th="Average Daily Count">{{ data.yesterday }}</td>
     </tr>
     <tr>
       <td data-th="Timeframe">Last 7 Days</td>
-      <td data-th="Average Daily Count">6.3</td>
+      <td data-th="Average Daily Count">{{ data.seven_days }}</td>
     </tr>
     <tr>
       <td data-th="Timeframe">Last 30 Days</td>
-      <td data-th="Average Daily Count">6.4</td>
+      <td data-th="Average Daily Count">{{ data.thirty_days }}</td>
     </tr>
   </table>
 
-  {{ logs }}
+  <a href="{{ url_for('index') }}"> Go Back to Timer</a>
 
   <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
