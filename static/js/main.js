@@ -49,6 +49,9 @@ function updateTimer() {
         console.log("Store to databse and reset");
         // calling route to store date_time
         $.getJSON('/send_datetime', function () { });
+        minutes = 25;
+        seconds = 0;
+        showTimer();
     }
     else if (seconds == 0) {
         minutes -= 1;
