@@ -2,10 +2,12 @@ from flask import Flask, render_template, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, date, timedelta
 import random , string
+import os
 
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///store.db'
+app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///' + os.path.join(basedir,'store.db')
 
 db = SQLAlchemy(app)
 
